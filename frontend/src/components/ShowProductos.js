@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
+import ButtonAddProducto from './modal_add_producto'
+
 import { Link } from 'react-router-dom'
 
 const endpoint = 'http://localhost:8000/api'
@@ -18,16 +20,15 @@ const ShowProductos = () => {
     }
 
     const deleteProducto = async (id) => {
-        axios.delete(endpoint + '/producto/' + id)
+        await axios.delete(endpoint + '/producto/' + id)
         getAllProductos()
     }
 
     return (
-        <div>
+        <div className='container p-4'>
             <div className='d-grid gap-2'>
-                <Link to={'/crear'} className='btn btn-success btn-lg mt-2 mb-2 text-white'>Crear</Link>
-                <table className='table table-striped'>
-                    <thead className='bg-primary text-white'>
+                <table className='table table-hover'>
+                    <thead className='table-dark'>
                         <tr>
                             <th>ID</th>
                             <th>Nombre</th>
@@ -36,6 +37,15 @@ const ShowProductos = () => {
                             <th>Precio</th>
                             <th>Deshabilitado</th>
                             <th>Acciones</th>
+                        </tr>
+                        <tr className='table-active'>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td><ButtonAddProducto></ButtonAddProducto></td>
                         </tr>
                     </thead>
                     <tbody>
@@ -48,7 +58,7 @@ const ShowProductos = () => {
                                 <td> {producto.precio} </td>
                                 <td> {producto.deshabilitado} </td>
                                 <td>
-                                    <Link to={'editar/' + (producto.id)} className='btn btn-outline-warning'>Editar</Link>
+                                    <Link to={'editar/' + (producto.id)} className='btn btn-outline-warning me-2'>Editar</Link>
                                     <button onClick={() => deleteProducto(producto.id)} className="btn btn-outline-danger">Eliminar</button>
                                 </td>
                             </tr>
