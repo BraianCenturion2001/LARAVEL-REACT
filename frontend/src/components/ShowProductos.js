@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-import ButtonAddProducto from './modal_add_producto'
-
-import { Link } from 'react-router-dom'
+import ModalForm from './modal_add_producto'
 
 const endpoint = 'http://localhost:8000/api'
 
@@ -45,7 +44,7 @@ const ShowProductos = () => {
                             <td>-</td>
                             <td>-</td>
                             <td>-</td>
-                            <td><ButtonAddProducto></ButtonAddProducto></td>
+                            <td><ModalForm></ModalForm></td>
                         </tr>
                     </thead>
                     <tbody>
