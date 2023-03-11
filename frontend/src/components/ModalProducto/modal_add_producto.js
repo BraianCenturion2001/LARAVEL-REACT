@@ -5,6 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import { PlusCircle } from 'react-bootstrap-icons';
 
 const endpoint = 'http://localhost:8000/api/producto'
 
@@ -40,7 +41,7 @@ function ModalForm(props) {
     return (
         <>
             <Button variant="outline-success text-white" onClick={handleShow}>
-                Agregar Producto
+                <PlusCircle size={18} /> Agregar Producto
             </Button>
 
             <Modal

@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-import ModalForm from './modal_add_producto'
+import { Pen, Trash } from 'react-bootstrap-icons';
+import ModalForm from './ModalProducto/modal_add_producto'
 
 const endpoint = 'http://localhost:8000/api'
 
@@ -57,8 +58,8 @@ const ShowProductos = () => {
                                 <td> {producto.precio} </td>
                                 <td> {producto.deshabilitado} </td>
                                 <td>
-                                    <Link to={'editar/' + (producto.id)} className='btn btn-outline-warning me-2'>Editar</Link>
-                                    <button onClick={() => deleteProducto(producto.id)} className="btn btn-outline-danger">Eliminar</button>
+                                    <Link to={'editar/' + (producto.id)} className='btn btn-outline-warning me-2'><Pen size={18} /> Editar</Link>
+                                    <button onClick={() => deleteProducto(producto.id)} className="btn btn-outline-danger"><Trash size={18} /> Eliminar</button>
                                 </td>
                             </tr>
                         ))}
